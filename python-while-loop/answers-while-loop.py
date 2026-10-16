@@ -46,3 +46,96 @@ while i<=100:
     sum+=i
     i+=1
 print(sum)
+
+# 7. **Count numbers**
+#    Ask the user for a number n and count from 1 to n.
+number = int(input("enter number:"))
+i=1
+while i<=number:
+    print(i,end=" ")
+    i+=1
+
+# 8. **Positive or negative input**
+#    Keep asking the user to enter a number until they enter 0.
+while True:
+    number = int(input("enter a number:"))
+    if number == 0:
+        print("exited successfully")
+        break
+
+# 9. **Password validation**
+#    Keep asking for a password until the user enters the correct password.
+while True:
+    password = input("enter password:")
+    if password=="Admin12":
+        print("Correct password")
+        break
+    else:
+        print("Wrong password!!! try again.")
+
+# 10. **Limited attempts**
+    # Give the user 3 attempts to enter the correct password.
+attempts = 3
+while attempts>=0:
+    password = input("enter password:")
+    if password=="Admin12":
+        print("Correct password")
+        break
+    else:
+        attempts-=1
+        print(f"Wrong password!!! try again. {attempts} left")
+        print("Account blocked!!!")
+
+# 11. **Keep asking for numbers**
+#     Keep taking numbers from the user and stop when they enter "-1." At the end, display the sum of all entered numbers.
+
+total=0
+while True:
+    print("To exit enter -1")
+    number = int(input("enter number:"))
+    if number == -1:
+        break
+    else:
+        total+=number
+print(total)
+
+# 12. **Count positive numbers**
+#  Keep accepting numbers until the user enters 0. Count how many positive numbers were entered.
+count=0
+while True:
+    number = int(input("enter number:"))
+    if number == 0:
+        break
+    else:
+        if number>=0:
+            count+=1
+print(f"you entered {count} positive number")
+
+
+# 13. **Largest number**
+#     Keep accepting numbers until the user enters 0. Find the largest number entered.
+largest = float('-inf')
+while True:
+    number = int(input("enter number:"))
+    if number == 0:
+        break
+    else:
+        if number>largest:
+            largest=number
+print("largest : ",largest)
+
+# 14. **Smallest number**
+#     Keep accepting numbers until the user enters 0. Find the smallest number entered.
+smallest = float('inf')
+while True:
+    number = int(input("enter number:"))
+    if number == 0:
+        break
+    else:
+        if number<smallest:
+            smallest=number
+print("smallest : ",smallest)
+
+# 15. **Factorial**
+#     Ask the user for a number and calculate its factorial using while.
+
