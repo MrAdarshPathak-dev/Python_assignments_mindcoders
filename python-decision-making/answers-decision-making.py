@@ -366,3 +366,346 @@ elif sp>cp:
     print(f"Profit:{profit}\nProfit Percentage:{profitPercent}%")
 else:
     print("Neither profit nor loss")
+
+### Q27. BMI Category
+# Input `weight` (in kg) and `height` (in meters). Calculate BMI = weight / height² and classify:
+
+# | BMI | Category |
+# | :--- | :--- |
+# | < 18.5 | Underweight |
+# | 18.5–24.9 | Normal |
+# | 25–29.9 | Overweight |
+# | ≥ 30 | Obese |
+weight=int(input("Enter your weight in kg"))
+height = int(input("Enter your height in meters"))
+bmi = weight/(height**2)
+print(f"Your BMI:{bmi}")
+if bmi < 18.5:
+    print("Underweight")
+elif bmi > 18.5 and bmi <= 24.9:
+    print("Normal")
+elif bmi >=25 and bmi <29.9:
+    print("Overweight")
+else:
+    print("Obese")
+
+### Q28. Calculator
+# Input two numbers and an operator (`+`, `-`, `*`, `/`). Perform the operation using `if-elif-else`. Explicitly handle and prevent division by zero errors.
+# * **Example:**
+#   * **Input:** `10`, `5`, `*`
+#   * **Output:** `50`
+num1=int(input("enter 1st number: "))
+num2=int(input("enter 2nd number: "))
+operator = input("Select an operator among: + - * / : ")
+if operator=="+":
+    sum = num1+num2
+    print(f"{num1} + {num2} = {sum}")
+elif operator=="-":
+    subs = num1-num2
+    print(f"{num1} - {num2} = {subs}")
+elif operator=="*":
+    multiply = num1*num2
+    print(f"{num1} * {num2} = {multiply}")
+elif operator=="/":
+    if num2==0:
+        print("Undefined operation")
+    else:
+        divide = num1+num2
+        print(f"{num1}/{num2}={divide}")
+else:
+    print("please choose valid operator")
+
+### Q29. Employee Bonus
+# Input `salary` and `years_of_service`. Calculate the bonus amount and final salary based on these rules:
+# * Service ≥ 10 years → 20% bonus
+# * Service ≥ 5 years → 10% bonus
+# * Service ≥ 2 years → 5% bonus
+# * Otherwise → No bonus
+
+salary =int(input("enter your salary: "))
+years_of_service = int(input("enter years of service: "))
+if years_of_service>=10:
+    bonus = salary*(20/100)
+    print("Salary + Bonus:",salary+bonus)
+elif years_of_service>=5 and years_of_service<10:
+    bonus = salary*(10/100)
+    print("Salary + Bonus:",salary+bonus)
+elif years_of_service>=2 and years_of_service<5:
+    bonus = salary*(5/100)
+    print("Salary + Bonus:",salary+bonus)
+else:
+    print("No bonus!!! Salary:",salary)
+
+
+### Q30. ATM Menu
+# Create an ATM program that accepts an operation input choice:
+# * `1` → Check Balance
+# * `2` → Deposit
+# * `3` → Withdraw
+# * `4` → Exit
+# Use decision statements to execute the operation. Ensure a validation check handles sufficient balance for withdrawals.
+balance = 0
+
+print('''Menu:
+ `1` → Check Balance
+ `2` → Deposit
+ `3` → Withdraw
+ `4` → Exit''')
+input_choice = int(input("choose any option to perform any operation:"))
+if input_choice==1:
+    print("current balance:",balance)
+
+elif input_choice==2:
+    deposit_amount = int(input("Enter your deposit amount:"))
+    if deposit_amount <= 0:
+        print("invalid operation!!! Current balance:",balance)
+    elif deposit_amount > 0:
+        balance+=deposit_amount
+        print("Transaction Successful! Current balance:",balance)
+
+elif input_choice==3:
+    withdrawal_amount = int(input("Enter your Withdrawal amount:"))
+    if withdrawal_amount <= 0:
+        print("invalid operation!!! Current balance:",balance)
+    elif balance< withdrawal_amount:
+        print("insufficiant balance! Current Balance:",balance)
+    else:
+        balance-=withdrawal_amount
+        print("Transaction Successful! Current balance:",balance)
+
+else:
+    print("Exited")
+    
+
+### Q31. Electricity Bill with Surcharge
+# Calculate a tiered slab electricity bill (using rules from Q20), then apply a surcharge:
+# * If base bill > ₹5,000 → add 10% surcharge
+# * If base bill > ₹10,000 → add 15% surcharge
+# * **Display format:** `Units consumed`, `Base bill`, `Surcharge`, and `Final bill`. 
+units=int(input("enter your electricity units:"))
+if units>=0 and units<=100:
+    bill=units*5
+    print("Bill:",bill)
+
+elif 101<=units and units<=200:
+    bill=units*7
+    print("Bill:",bill)
+elif 201<=units and units<=300:
+    bill=units*10
+    print("Bill:",bill)
+else:
+    bill=units*15
+    print("Bill:",bill)
+
+if bill > 5000  and bill <10000:
+        surcharge = "10%"
+        final_bill = bill + (bill*(1/10))
+        print(f'''Base bill:{bill}
+Surcharge:{surcharge}
+Final bill:{final_bill}
+''')
+
+
+elif bill > 10000 :
+    surcharge = "15%"
+    final_bill = bill + (bill*(1/15))
+    print(f'''Base bill:{bill}
+Surcharge:{surcharge}
+Final bill:{final_bill}
+''')
+
+else:
+    surcharge = "0%"
+    final_bill = bill
+    print(f'''Surcharge:{surcharge}
+Final bill:{final_bill}
+Final bill:{bill}''')
+
+### Q32. Student Result System
+# Input individual marks for four subjects: `Python`, `SQL`, `Mathematics`, and `Statistics`.
+# * **Rules:**
+#   * Minimum 40 marks required in **every** subject to `Pass`; otherwise `Fail`.
+#   * Calculate overall percentage and assign a grade based on the percentage if they pass.
+
+marks={
+    "Python" : int(input("Enter python marks:")),
+    "SQL" : int(input("Enter SQL marks:")),
+    "Mathematics" : int(input("Enter Mathematics marks:")),
+    "Statistics" : int(input("Enter Statistics marks:"))
+}
+if (
+    marks["Python"]>=40 
+    and marks["SQL"]>=40 
+    and marks["Mathematics"]>=40 
+    and marks["Statistics"]>=40
+    ):
+    print("Pass")
+    total = marks["Python"]+marks["SQL"]+marks["Mathematics"]+marks["Statistics"]
+    percentage = float((total/400)*100) 
+    print("Percentage:",percentage)
+    if percentage>=90 and percentage<=100:
+        print("Grade: A+")
+    elif percentage>=80 and percentage<90:
+        print("Grade: A")
+    elif percentage>=70 and percentage<80:
+        print("Grade: B")
+    elif percentage>=60 and percentage<70:
+        print("Grade: C")
+    elif percentage>=50 and percentage<60:
+        print("Grade: D")
+    else:
+        print("Grade: E")
+
+else:
+    print("Fail!")
+
+
+
+### Q33. Income Tax Calculator
+# Input annual income and calculate tax liability using regional income tax slabs. The program must explicitly output: `Income`, `Tax`, and remaining `Net income`.
+#
+# New Tax Regime Slabs (AY 2026-27 / FY 2025–26)
+
+# • Up to ₹4,00,000: Nil (0%)
+# • ₹4,00,001 – ₹8,00,000: 5%
+# • ₹8,00,001 – ₹12,00,000: 10%
+# • ₹12,00,001 – ₹16,00,000: 15%
+# • ₹16,00,001 – ₹20,00,000: 20%
+# • ₹20,00,001 – ₹24,00,000: 25%
+# • Above ₹24,00,000: 30%
+annual_income = int(input("Enter your annual income:"))
+if annual_income>=2400000:
+    tax_percent = 30
+    income_tax = float(annual_income*(30/100))
+    net_income = annual_income - income_tax
+    print(
+f'''Gross Income: {annual_income}
+Tax Percent: {tax_percent}
+Tax: {income_tax}
+Net Income: {net_income}'''
+    )
+    
+elif annual_income>=2000001 and annual_income<2400000:
+    tax_percent = 25
+    income_tax = float(annual_income*(25/100))
+    net_income = annual_income - income_tax
+    print(
+f'''Gross Income: {annual_income}
+Tax Percent: {tax_percent}
+Tax: {income_tax}
+Net Income: {net_income}'''
+    )
+elif annual_income>=1600001 and annual_income<=2000000:
+    tax_percent = 20
+    income_tax = float(annual_income*(20/100))
+    net_income = annual_income - income_tax
+    print(
+f'''Gross Income: {annual_income}
+Tax Percent: {tax_percent}
+Tax: {income_tax}
+Net Income: {net_income}'''
+    )
+elif annual_income>=1200001 and annual_income<=1600000:
+    tax_percent = 15
+    income_tax = float(annual_income*(15/100))
+    net_income = annual_income - income_tax
+    print(
+f'''Gross Income: {annual_income}
+Tax Percent: {tax_percent}
+Tax: {income_tax}
+Net Income: {net_income}'''
+    )
+elif annual_income>=800001 and annual_income<=1200000:
+    tax_percent = 10
+    income_tax = float(annual_income*(10/100))
+    net_income = annual_income - income_tax
+    print(
+f'''Gross Income: {annual_income}
+Tax Percent: {tax_percent}
+Tax: {income_tax}
+Net Income: {net_income}'''
+    )
+elif annual_income>=400001 and annual_income<=800000:
+    tax_percent = 5
+    income_tax = float(annual_income*(5/100))
+    net_income = annual_income - income_tax
+    print(
+f'''Gross Income: {annual_income}
+Tax Percent: {tax_percent}
+Tax: {income_tax}
+Net Income: {net_income}'''
+    )
+else:
+    tax_percent = 0
+    income_tax = 0
+    net_income = annual_income - income_tax
+    print(
+f'''Gross Income: {annual_income}
+Tax Percent: {tax_percent}
+Tax: {income_tax}
+Net Income: {net_income}'''
+    )
+
+
+
+
+### Q34. Login with Account Status
+# Input `username`, `password`, and `account_status`.
+# * **Rules:**
+#   * Correct username → check password.
+#   * Correct password → check account status.
+#     * If status is `"active"` → Login successful.
+#     * If status is `"blocked"` → Account blocked.
+#   * Wrong credentials at any stage → Login failed.
+username = input("Enter your username: ")
+
+if username == "@Admin1":
+    password = input("Enter password: ")
+
+    if password == "admin1":
+        account_status = input("Enter account status: ")
+
+        if account_status == "active":
+            print("Login Successful!")
+        elif account_status == "blocked":
+            print("Account blocked. Login Failed!")
+        else:
+            print("Login failed!")
+    else:
+        print("Wrong password. Login failed!")
+else:
+    print("Wrong username. Login failed!")
+
+
+
+### Q35. Number Property Checker
+# Input an integer and determine all of its matching attributes simultaneously:
+# * Positive / negative / zero
+# * Even / odd
+# * Divisible by 3 / divisible by 5 / divisible by both 3 and 5 / divisible by neither
+
+number = int(input("enter a number:"))
+#block 1 Positive / negative / zero
+if number > 0 :
+    print(number," is positive")
+elif number < 0 :
+    print(number," is negative")
+else:
+    print(number," is zero")
+
+#Block 2  Even / odd
+if number%2 == 0:
+    print(number," is even")
+else:
+    print(number," is odd")
+
+# Block 3  Divisible by 3 / divisible by 5 / divisible by both 3 and 5 / divisible by neither
+
+if number % 3 == 0 and number % 5 == 0:
+    print(number," is divisible by both 3 and 5")
+elif number % 3 == 0:
+    print(f"{number} is divisible by 3")
+elif number % 5 == 0:
+    print(f"{number} is divisible by 5")
+else:
+    print(number, "is divisible by neither 3 nor 5")
