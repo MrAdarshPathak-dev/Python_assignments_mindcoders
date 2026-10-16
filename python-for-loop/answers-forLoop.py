@@ -231,6 +231,12 @@ text = "Python"
 for i in range(len(text)-1,-1,-1):
                 print(text[i],end="")
 
+# second approach
+s = "aadi"
+rev = ""
+for i in s:
+    rev  = i+rev #concatenation
+print(rev)
 
 
 # 38. Count the number of uppercase and lowercase characters in a string.  
@@ -378,3 +384,174 @@ else:
 
 
 # 52. Print all prime numbers between 1 and 100.
+for i in range(1,101):
+    is_prime=True
+    for j in range(2,i):
+        if i % j == 0:
+            is_prime=False
+            break
+    else:
+        print(i)
+
+# 53. Count the number of prime numbers between 1 and 100.
+count = 0
+for i in range(1,101):
+    is_prime=True
+    for j in range(2,i):
+        if i%j==0:
+            is_prime=False
+            break
+    else:
+        count+=1
+print(count)
+
+# 54. Take a number and print all its factors.  
+#     * Example: 
+#       Input: 12 
+#       Output: 1 2 3 4 6 12 
+# 54. Take a number and print all its factors.  
+#     * Example: 
+#       Input: 12 
+#       Output: 1 2 3 4 6 12 
+num = int(input("enter number:"))
+for i in range(1,num+1):
+    if num%i==0:
+        print(i,end=" ")
+
+# 55. Find the GCD/HCF of two numbers using a for loop.  
+num1=int(input("enter first number:"))
+num2=int(input("enter second number:"))
+factors=[]
+for i in range(1,min(num1,num2)+1):
+    if num1%i==0 and num2%i==0:
+        factors.append(i)
+print("Common Factors:",factors)
+print(f"GCD of {num1} and {num2}:{max(factors)}")
+
+
+# 56. Find the LCM of two numbers using a for loop.
+num1 = int(input("Enter first number: "))
+num2 = int(input("Enter second number: "))
+for i in range(max(num1, num2), (num1 * num2) + 1):
+    if i % num1 == 0 and i % num2 == 0:
+        print(i)
+        break
+
+# 57. Check whether a number is a perfect number.  
+number = int(input("Enter number:"))
+sum = 0
+for num in range(1,number):
+    if number%num==0:
+        sum+=num
+if sum==number:
+    print(f"{number} is a perfect number")
+else:
+    print(f"{number} is not a perfect number")
+
+# 58. Print all perfect numbers between 1 and 1000.
+for i in range(1,1001):
+    total = 0
+    for j in range(1,i):
+        if i%j==0:
+            total+=j
+    if total == i:
+        print(i,end=", ")
+
+# 59. Check whether a number is an Armstrong number. 
+number = input("Enter number:")
+sum = 0
+order = len(number)
+for digits in number:
+    digits = int(digits)
+    powered_digit=(digits**order)
+    sum+=powered_digit
+if int(number)==sum:
+    print(f"{number} is a Armstrong number")
+else:
+    print(f"{number} is not a armstrong number")
+
+
+
+# 60. Print all Armstrong numbers between 1 and 1000.  
+for i in range(1, 1001):
+    total = 0
+    number = str(i)
+    order = len(number)
+
+    for digit in number:
+        digit = int(digit)
+        powered_digit = digit**order
+        total += powered_digit
+
+    if i == total:
+        print(i,"is armstrong number")
+
+
+#========================================================================================Patterns----> patterns.py==========================================
+
+
+# ===================Questions from question.md after pattern=======================================================================
+
+
+
+# 71. Find the second-smallest number in a list without using `sort()`.  
+numbers = [4,6,8,8,9,5,3]
+smallest = float('inf')
+second_smallest = float('inf')
+for  num in numbers:
+    if num<smallest:
+        second_smallest=smallest
+        smallest=num
+    elif num<second_smallest and num!=smallest:
+        second_smallest = num
+print(f"smallest:{smallest} and second smallest: {second_smallest}")
+
+# 72. Find all pairs of numbers whose sum is 10.  
+for i in range(0,10):
+    for j in range(0,10):
+        if i+j==10:
+            print(f"({i},{j})")
+
+# 73. Find the frequency of every element in a list.  
+number = [1, 2, 4, 1, 1, 4, 5, 3, 2]
+
+for i in number:
+    count = 0
+    for j in number:
+        if i==j:
+            count+=1
+    print(f"{i} --> {count} times")
+
+# 74. Find the character that occurs most frequently in a string.  
+string = input("enter a string: ")
+max_char = ""
+max_count = 0
+for i in string:
+    count = 0
+    for j in string:
+        if i==j:
+            count+=1
+    if count > max_count:
+        max_count = count
+        max_char = i
+print(f"{max_char} --> {max_count} times")
+
+# 75. Check whether a string is a palindrome using a for loop.
+string = input("enter a string: ")
+rev_str =""
+for char in string:
+    rev_str=char+rev_str
+if string==rev_str:
+    print("Palindrome")
+else:
+    print("Not a Palindrome")
+
+# 76. Find all numbers between 1 and 100 that are both prime and odd.  
+for i in range(1,101):
+    isPrime = True
+    for j in range(2,i):
+        if i%j == 0:
+            isPrime = False
+            break
+    if isPrime:
+        print(i,"is prime")
