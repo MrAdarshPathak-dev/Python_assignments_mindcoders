@@ -553,5 +553,7 @@ for i in range(1,101):
         if i%j == 0:
             isPrime = False
             break
-    if isPrime:
-        print(i,"is prime")
+    if isPrime and i%2!=0:
+        print(i,"is prime and odd")
+
+
