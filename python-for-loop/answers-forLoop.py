@@ -556,4 +556,18 @@ for i in range(1,101):
     if isPrime and i%2!=0:
         print(i,"is prime and odd")
 
-
+# 77. Generate the first n terms of the Fibonacci series using a for loop.
+a = 0
+b = 1
+n = int(input("enter a number:"))
+if n == 1:
+    print(a)
+else:
+    print(a,end=", ")
+    print(b,end=", ")
+    for i in range(2,n):
+        c = a+b
+        a = b
+        b = c
+        print(c,end=", ")
+        
