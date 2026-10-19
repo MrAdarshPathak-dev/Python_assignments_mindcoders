@@ -87,7 +87,13 @@
     ****
     *****
 39. **Number pattern**
-    Print: 1 12 123 1234 12345 using while.
+    Print:
+    1 
+    12 
+    123 
+    1234 
+    12345 
+    using while.
 40. **Interactive student marks program**
     Keep accepting marks for students until the user enters "-1." At the end display:
     * Number of students
