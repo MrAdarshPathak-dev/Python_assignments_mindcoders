@@ -398,3 +398,161 @@ while True:
     else:
         print("Choose Valid Option:")
 
+
+# 29. **Login system**
+#     Ask for username and password. Allow the user to try until the correct credentials are entered.
+username = "@admin1"
+password = "admin1"
+while True:
+    enter_name = input("Enter your username: ")
+    if enter_name == username:
+        enter_pass = input("Enter your password: ")
+        if enter_pass == password:
+            print("Login successful")
+            break
+        else:
+            print("wrong password! Try again...")
+    else:
+        print("Wrong username! Try again...")
+
+# 30. **Continue or stop**
+#     Ask the user: Do you want to continue? (yes/no) Repeat the program while the answer is "yes".
+i = 1
+
+while True:
+    print(i)
+    user_choice = input("Do you want to continue? (yes/no): ").strip().lower()
+    if user_choice == "yes":
+        i += 1
+    elif user_choice == "no":
+        print("Program stopped.")
+        break
+    else:
+        print("Invalid input! Please type 'yes' or 'no'.")
+
+
+# 31. **Fibonacci series**
+#     Print: 0 1 1 2 3 5 8 13 21 34 using a while loop.
+
+a = 0
+b = 1
+n = int(input("Enter a number:"))
+i = 0
+print(a,end=" ")
+print(b,end=" ")
+while i<=n:
+    c=a+b
+    print(c,end=" ")
+    a=b
+    b=c
+    i+=1
+
+# 32. **Armstrong number**
+#     Check whether a number is an Armstrong number. Example: 153 = 1³ + 5³ + 3³
+
+n = input("Enter a number: ")
+i = 0
+order = len(n)
+total = 0
+while i<order:
+    digit = n[i]
+    digit = int(digit)
+    powered_digit = digit**order
+    total += powered_digit
+    i+=1
+if total == int(n):
+    print("Armstrong number!")
+else:
+    print("Not an armstrong number!")
+
+
+# 33. **Perfect number**
+#     Check whether a number is a perfect number. Example: 6 → 1 + 2 + 3 = 6
+i = 1
+n = int(input("Enter a number: "))
+total = 0
+while i<n:
+    if n%i==0:
+        total += i
+    i+=1
+if total == n:
+    print("Perfect number")
+else:
+    print("Not a perfect number")
+    
+# 34. **GCD**
+#     Find the Greatest Common Divisor of two numbers using a while loop.
+num1 = int(input("Enter first number:"))
+num2 = int(input("Enter second number:"))
+i = 1
+gcd = 1 
+while i<=num1:
+    if num1%i == 0 and num2%i==0:
+        gcd = i
+    i+=1
+print("Greatest Common Divisor is:", gcd)
+
+# 35. **LCM**
+#     Find the Least Common Multiple of two numbers.
+num1 = int(input("Enter first number:"))
+num2 = int(input("Enter second number:"))
+lcm = 1
+i = num1
+while True:
+    if i % num1 == 0 and i % num2 == 0:
+        lcm = i
+        break
+    i+=1
+print("Least Common Multiple: ",lcm)
+
+# 36. **Decimal to binary**
+    # Convert a decimal number to binary using a while loop.
+
+
+
+
+
+
+
+
+
+# 38. **Pattern using while**
+#     Print:
+#     *
+#     **
+#     ***
+#     ****
+#     *****
+i = 1
+while i<=5:
+    j = 1
+    while j <= i:
+        print("*",end="")
+        j+=1
+    print()
+    i+=1
+
+# 39. **Number pattern**
+#     Print:
+#     1 
+#     12 
+#     123 
+#     1234 
+#     12345 
+#     using while.
+i=1
+while i<=5:
+    j=1
+    while j<=i:
+        print(j,end="")
+        j+=1
+    print()
+    i+=1
+
+# 40. **Interactive student marks program**
+#     Keep accepting marks for students until the user enters "-1." At the end display:
+#     * Number of students
+#     * Total marks
+#     * Average marks
+#     * Highest marks
+#     * Lowest marks
