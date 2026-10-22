@@ -506,18 +506,40 @@ while True:
 print("Least Common Multiple: ",lcm)
 
 # 36. **Decimal to binary**
-    # Convert a decimal number to binary using a while loop.
+# Convert a decimal number to binary using a while loop.
+num = int(input("enter a number:"))
+binary = ""
+while True:
+    quotient = num//2
+    remainder = num%2
+    num=quotient
+    binary = str(remainder) + binary
+    
+    if quotient == 0:
+        break
+print(binary)
 
 
+# 37. **Binary to decimal**
+#     Convert a binary number to decimal using a while loop.
+binary = int(input("Enter a binary digit: "))
+decimal = 0
+place = 0
+while True:
+    digit = binary%10 # extract last digit  
+    binary = binary//10 #give remaining digits 
+    decimal += digit * (2 ** place)
+    place+=1
+    if binary == 0:
+        break
+
+print(decimal)
 
 
-
-
-
-
+    
 
 # 38. **Pattern using while**
-#     Print:
+#     Print: 
 #     *
 #     **
 #     ***
@@ -549,6 +571,8 @@ while i<=5:
     print()
     i+=1
 
+
+
 # 40. **Interactive student marks program**
 #     Keep accepting marks for students until the user enters "-1." At the end display:
 #     * Number of students
@@ -556,3 +580,28 @@ while i<=5:
 #     * Average marks
 #     * Highest marks
 #     * Lowest marks
+
+count = 0
+total = 0
+lowest = float('inf')
+highest = float("-inf")
+marks = int(input("Enter marks (-1 to stop): "))
+
+while marks != -1:
+    count+=1
+    total+=marks
+    if marks > highest:
+        highest = marks
+    if marks < lowest:
+        lowest = marks
+    marks = int(input("Enter marks (-1 to stop): "))
+     
+if count == 0:
+    print("No student marks were entered.")
+else:
+    avarage = total/count
+    print("Avarage",avarage)
+print("Total no. of students:",count)
+print("Total marks:",total)
+print("Highest Marks: ",highest)
+print("Lowest Marks: ",lowest)
