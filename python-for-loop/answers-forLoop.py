@@ -559,7 +559,7 @@ for i in range(1,101):
 # 77. Generate the first n terms of the Fibonacci series using a for loop.
 a = 0
 b = 1
-n = int(input("enter a number:"))
+n = int(input("enter the value of n:"))
 if n == 1:
     print(a)
 else:
@@ -570,4 +570,45 @@ else:
         a = b
         b = c
         print(c,end=", ")
+
+
+# 78. Check whether a number belongs to the Fibonacci sequence. 
+import itertools
+number = int(input("Enter number to check if it belongs to the Fibonacci sequence: "))
+a = 0
+b = 1
+if number<0:
+    print("Does not belong to fabonacci sequence.")
+elif number == 0:
+    print("0 belongs to fabonacci sequence")
+else:
+    for i in itertools.count(2):
+        if a == number:
+            print(f"{number} belongs to fabonacci sequence")
+            break
+        elif a > number:
+            print(f"{number} doesn't belong to fabonacci sequence")
+            break
         
+        else:
+            c = a + b
+            a = b
+            b = c
+
+
+    
+# 79. Find the digital sum of a number using a for loop.  
+number = input("Enter a number: ")
+total = 0
+
+for digit in number:
+    total += int(digit)
+
+print("Digital sum:", total)
+
+
+# 80. Convert a decimal number to binary using a for loop.
+
+
+
+
