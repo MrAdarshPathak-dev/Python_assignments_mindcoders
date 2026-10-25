@@ -609,6 +609,17 @@ print("Digital sum:", total)
 
 # 80. Convert a decimal number to binary using a for loop.
 
+number = int(input("Enter a number: "))
+binary = ""
 
+if number == 0:
+    binary = "0"
+else:
+    for i in range(number.bit_length()): 
+        remainder = number % 2
+        binary = str(remainder) + binary
+        number = number // 2
+
+print("Binary:", binary)
 
 
