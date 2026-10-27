@@ -621,5 +621,3 @@ else:
         number = number // 2
 
 print("Binary:", binary)
-
-
