@@ -170,3 +170,105 @@ def employee_salary(name, basic_salary, bonus=0, tax=5):
 in_hand_salary = employee_salary("Adarsh Pathak", 3000000, 300000, tax=30)
 
 print("Salary in hand: ", in_hand_salary)
+
+
+# 19. Write a function `remove_duplicates(lst)` that removes duplicate elements from a list without using `set()` while preserving the original order.
+
+# 19. Write a function `remove_duplicates(lst)` that removes duplicate elements from a list without using `set()` while preserving the original order.
+def remove_duplicates(lst=[1, 1, 2, 34, 5, 32, 2]):
+    unique_elements = []
+    
+    for item in lst:
+        if item not in unique_elements:
+            unique_elements.append(item)
+            
+    return unique_elements
+
+new_list = remove_duplicates()
+print(new_list)
+
+
+# 20. Write a function `second_largest(lst)` that returns the second-largest distinct number in a list without using `sort()` or `sorted()`.
+def second_largest(lst):
+    largest = float('-inf')
+    second_largest = float('-inf')
+    
+    for num in lst:
+        if num >= largest:
+            second_largest = largest
+            largest = num
+
+        elif num > second_largest and num != largest:
+            second_largest = num 
+            
+    return second_largest 
+
+s_largest = second_largest([11, 2, 3, 5, 0, 10, 32])
+print("second largest:", s_largest)
+
+# 21. Write a function `count_frequency(lst)` that returns a dictionary containing the frequency of each element.
+def count_frequency(lst):
+    frequency_dict = {}
+
+    for key in lst:
+
+        if key in frequency_dict:
+            frequency_dict[key] += 1
+
+        else:
+            frequency_dict[key] = 1
+
+    return frequency_dict
+
+final_dict = count_frequency([1,1,1,1,1,2,3,45,6,45,45,6])
+print(final_dict)
+
+
+# 22. Write a function `palindrome(s)` that checks whether a string is a palindrome, ignoring spaces and letter case.
+def palindrome(s):
+    rev = ""
+    for ch in s:
+        rev = ch + rev
+    if rev == s:
+        return "Palindrome"
+    else:
+        return "Not Palindrome"
+
+print(palindrome("madam"))
+
+
+# 23. Write a function `word_count(sentence)` that returns the number of occurrences of each word in a sentence.
+
+def word_count(sentence):
+    count_dict = {}
+
+    words = sentence.split()
+    for word in words:
+        if word in count_dict:
+            count_dict[word] += 1
+        else:
+            count_dict[word] = 1
+    return count_dict
+
+print(word_count("I am the best I love coding Python is the best language"))
+
+# 24. Write a function `common_elements(list1, list2)` that returns the common elements without duplicates.
+
+def common_elements(list1, list2):
+    common_items = []
+
+    if len(list1) > len(list2):
+        list1, list2 = list2, list1
+
+    for item in list1:
+        if item in list2 and item not in common_items:
+            common_items.append(item)
+
+    return common_items
+
+print("Common elements:", common_elements([2, 4, 754], [1, 3, 4,]))
+
+
+# 25. Write a function `merge_dict(d1, d2)` that combines two dictionaries. If a key exists in both dictionaries, add their numeric values.
+
+
